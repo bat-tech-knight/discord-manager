@@ -28,33 +28,45 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0.25rem;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    /* Discord color palette */
+    --background: 215 16% 22%; /* #36393F - main message area */
+    --foreground: 0 0% 100%; /* white text */
+    --card: 217 20% 22%; /* #2F3136 - channel sidebar */
+    --card-foreground: 0 0% 100%;
+    --popover: 217 20% 22%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 235 86% 65%; /* #5865F2 - Discord Blurple */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 20% 17%; /* #2C2F33 - slightly darker */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217 20% 17%;
+    --muted-foreground: 216 12% 84%; /* #B9BBBE - Discord muted text */
+    --accent: 217 20% 17%; /* hover states */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 20% 13%; /* #202225 - Discord darkest */
+    --input: 217 20% 17%;
+    --ring: 235 86% 65%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --radius: 0.25rem; /* Discord uses subtle rounding (4px) */
+    
+    /* Discord-specific colors */
+    --discord-server-list: 217 20% 13%; /* #202225 */
+    --discord-channel-sidebar: 217 20% 22%; /* #2F3136 */
+    --discord-message-area: 215 16% 22%; /* #36393F */
+    --discord-text-primary: 0 0% 100%; /* white */
+    --discord-text-secondary: 216 12% 84%; /* #B9BBBE */
+    --discord-text-muted: 216 13% 66%; /* #72767D */
+    --discord-blurple: 235 86% 65%; /* #5865F2 */
+    --discord-hover: 217 20% 17%; /* #2C2F33 */
   }
 }
 
@@ -64,5 +76,51 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Discord-style scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--discord-hover)) transparent;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--discord-hover));
+    border-radius: 4px;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--discord-text-muted));
+  }
+}
+
+@layer components {
+  /* Discord-like link and code styling inside previews */
+  .discord-markup a {
+    color: #00aff4;
+    text-decoration: none;
+  }
+  .discord-markup a:hover {
+    text-decoration: underline;
+  }
+  .discord-markup code {
+    background-color: #2f3136;
+    padding: 2px 3px;
+    border-radius: 3px;
+  }
+  .discord-markup pre {
+    background-color: #2f3136;
+    border-radius: 4px;
+    padding: 8px;
+    overflow-x: auto;
   }
 }

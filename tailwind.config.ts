@@ -11,6 +11,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        discord: {
+          "server-list": "hsl(var(--discord-server-list))",
+          "channel-sidebar": "hsl(var(--discord-channel-sidebar))",
+          "message-area": "hsl(var(--discord-message-area))",
+          "text-primary": "hsl(var(--discord-text-primary))",
+          "text-secondary": "hsl(var(--discord-text-secondary))",
+          "text-muted": "hsl(var(--discord-text-muted))",
+          blurple: "hsl(var(--discord-blurple))",
+          hover: "hsl(var(--discord-hover))",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
